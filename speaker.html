@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./favicon.ico">
+
+  <title>“三维几何表达、建模与生成”前沿讲习班</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css_files/bootstrap.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="./css_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./css_files/GAMES_style.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <script src="./js_files/buttom.js"></script>
+
+  <script>
+    function load_js() {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.src = 'buttom.js';
+      head.appendChild(script);
+    }
+    load_js();
+  </script>
+  <!--<script src="buttom.js"></script>-->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div class="trcontainer2" style="width:60px;position: fixed;bottom:0px;left:0px;margin:1%">
+    <button id="top1"
+      style="width:80%;color:#4bbdd0;border: 1px solid #ccc;border-radius: 5%;background-color: #f4f4f4;  padding: 1%;margin: 1%;display: block;"><span
+        style="width:40%;margin-left:0%;margin-right:0%">回到<br>顶部</span></button>
+
+  </div>
+
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <!--<a class="navbar-brand" href="#"></a>-->
+
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.html">课程首页</a></li>
+          <li><a href="./program.html">课程安排</a></li>
+          <li class="active"><a href="./speaker.html">授课教师</a></li>
+          <li><a href="http://staff.ustc.edu.cn/~lgliu/Courses/SummerSchool/USTC-summer-school.html"
+              target="_blank">历年暑期课程</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+
+  <a id="top1_position"></a>
+  <div class="container">
+    <div class="starter-template">
+      <div class="jumbotron">
+        <h1 style="font-size:42px">授课教师</h1>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <p style="border-bottom: 1px solid #ffffff;"> </p>
+
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="liuligang" type="button"
+              onclick="location.href='#liuligang_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:2.0; --photo-x:0px; --photo-y:35px;"><img
+                  src="./speaker_files/liuligang.jpg" height="146"></span>
+              <h4>刘利刚</h4><span class="text-muted">中国科学技术大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="liuyuan" type="button"
+              onclick="location.href='#liuyuan_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:2.0; --photo-x:0px; --photo-y:35px;"><img
+                  src="./speaker_files/liuyuan.jpg" height="146"></span>
+              <h4>刘缘</h4><span class="text-muted">香港科技大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="yangkewei" type="button"
+              onclick="location.href='#yangkewei_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:0px; --photo-y:15px;"><img
+                  src="./speaker_files/yangkewei.jpg" height="146"></span>
+              <h4>杨克微</h4><span class="text-muted">网易</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="fangqing" type="button"
+              onclick="location.href='#fangqing_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:2.0; --photo-x:0px; --photo-y:35px;"><img
+                  src="./speaker_files/fangqing.jpg" height="146"></span>
+              <h4>方清</h4><span class="text-muted">中国科学技术大学</span>
+            </button></div>
+        </div>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="fuxiaoming" type="button"
+              onclick="location.href='#fuxiaoming_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.5; --photo-x:0px; --photo-y:20px;"><img
+                  src="./speaker_files/fuxiaoming.jpg" height="146"></span>
+              <h4>傅孝明</h4><span class="text-muted">中国科学技术大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="cuizhaopeng" type="button"
+              onclick="location.href='#cuizhaopeng_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:2.5; --photo-x:-2px; --photo-y:55px;"><img
+                  src="./speaker_files/cuizhaopeng.jpg" height="146"></span>
+              <h4>崔兆鹏</h4><span class="text-muted">浙江大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="guoyulan" type="button"
+              onclick="location.href='#guoyulan_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:0px; --photo-y:20px;"><img
+                  src="./speaker_files/guoyulan.jpg" height="146"></span>
+              <h4>郭裕兰</h4><span class="text-muted">中山大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="shenshuhan" type="button"
+              onclick="location.href='#shenshuhan_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:0px; --photo-y:0px;"><img
+                  src="./speaker_files/shenshuhan.jpg" height="146"></span>
+              <h4>申抒含</h4><span class="text-muted">中科院自动化所</span>
+            </button></div>
+        </div>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="jiangtengfei" type="button"
+              onclick="location.href='#jiangtengfei_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.5; --photo-x:0px; --photo-y:30px;"><img
+                  src="./speaker_files/jiangtengfei.jpg" height="146"></span>
+              <h4>江腾飞</h4><span class="text-muted">杭州先临</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="wangzeyu" type="button"
+              onclick="location.href='#wangzeyu_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:0px; --photo-y:0px;"><img
+                  src="./speaker_files/wangzeyu.jpg" height="146"></span>
+              <h4>王泽宇</h4><span class="text-muted">香港科技大学（广州）</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="chenanpei" type="button"
+              onclick="location.href='#chenanpei_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.5; --photo-x:2px; --photo-y:12px;"><img
+                  src="./speaker_files/chenanpei.jpg" height="146"></span>
+              <h4>陈安沛</h4><span class="text-muted">西湖大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="huangran" type="button"
+              onclick="location.href='#huangran_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.5; --photo-x:4px; --photo-y:15px;"><img
+                  src="./speaker_files/huangran.jpg" height="146"></span>
+              <h4>黄然</h4><span class="text-muted">华为</span>
+            </button></div>
+        </div>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="wangpengshuai" type="button"
+              onclick="location.href='#wangpengshuai_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:-5px; --photo-y:0px;"><img
+                  src="./speaker_files/wangpengshuai.jpg" height="146"></span>
+              <h4>王鹏帅</h4><span class="text-muted">北京大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="zhangbiao" type="button"
+              onclick="location.href='#zhangbiao_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.2; --photo-x:0px; --photo-y:6px;"><img
+                  src="./speaker_files/zhangbiao.jpg" height="146"></span>
+              <h4>张彪</h4><span class="text-muted">西安交通大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="wangtengfei" type="button"
+              onclick="location.href='#wangtengfei_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:0px; --photo-y:5px;"><img
+                  src="./speaker_files/wangtengfei.jpg" height="146"></span>
+              <h4>王腾飞</h4><span class="text-muted">腾讯混元</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="muyadong" type="button"
+              onclick="location.href='#muyadong_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.0; --photo-x:0px; --photo-y:0px;"><img
+                  src="./speaker_files/muyadong.jpg" height="146"></span>
+              <h4>穆亚东</h4><span class="text-muted">北京大学</span>
+            </button></div>
+        </div>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="shenglv" type="button"
+              onclick="location.href='#shenglv_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.8; --photo-x:0px; --photo-y:50px;"><img
+                  src="./speaker_files/shenglv.jpg" height="146"></span>
+              <h4>盛律</h4><span class="text-muted">北京航空航天大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="liuzhongyuan" type="button"
+              onclick="location.href='#liuzhongyuan_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.6; --photo-x:0px; --photo-y:30px;"><img
+                  src="./speaker_files/liuzhongyuan.jpg" height="146"></span>
+              <h4>刘中远</h4><span class="text-muted">腾讯游戏</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="muyao" type="button"
+              onclick="location.href='#muyao_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.1; --photo-x:0px; --photo-y:8px;"><img
+                  src="./speaker_files/muyao.jpg" height="146"></span>
+              <h4>穆尧</h4><span class="text-muted">上海交通大学</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="jiarongfei" type="button"
+              onclick="location.href='#jiarongfei_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.1; --photo-x:2px; --photo-y:8px;"><img
+                  src="./speaker_files/jiarongfei.jpg" height="146"></span>
+              <h4>贾荣飞</h4><span class="text-muted">数美万物</span>
+            </button></div>
+        </div>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="caoyanpei" type="button"
+              onclick="location.href='#caoyanpei_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.1; --photo-x:0px; --photo-y:8px;"><img
+                  src="./speaker_files/caoyanpei.jpg" height="146"></span>
+              <h4>曹炎培</h4><span class="text-muted">VAST</span>
+            </button></div>
+          <div class="col-xs-6 col-sm-3 placeholder"><button id="xujiale" type="button"
+              onclick="location.href='#xujiale_position'"><span class="speaker-photo"
+                style="--photo-width:100%; --photo-height:auto; --photo-scale:1.8; --photo-x:-5px; --photo-y:20px;"><img
+                  src="./speaker_files/xujiale.jpg" height="146"></span>
+              <h4>许家乐</h4><span class="text-muted">Meshy</span>
+            </button></div>
+        </div>
+
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="liuligang_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>课程导论与3D表达概览
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>刘利刚，中国科学技术大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            中国科学技术大学教授。从事计算机图形学及CAD/CAE方向研究。曾获国家自然基金委“杰出青年”项目资助；曾获中国计算机图形学杰出奖，Siggraph
+            Asia时间检验奖、陆增镛CAD&amp;CG高科技奖一等奖、国家自然科学二等奖等奖项。任中国工业与应用数学学会几何设计与计算专业委员会主任、国际几何建模与处理协会指导委员会委员、亚洲图形学协会副主席。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">http://staff.ustc.edu.cn/~lgliu/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>lgliu@ustc.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="liuyuan_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>TBD
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>刘缘，香港科技大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>...
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">...</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>...
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="yangkewei_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>可微渲染技术在游戏中的应用
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>杨克微，网易
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            2017年博士毕业于南京大学计算机科学与技术系，2018年初加入网易。期间他作为可微渲染资产优化管线的负责人，带领团队从无到有拓展和丰富了可微渲染在游戏中的应用范围，深入一线了解项目需求，形成了模型及切换距离优化、Billboard/Impostor优化、贴图及UV优化、渲染管线优化和代理体优化几大业务线，有效提升了游戏性能和渲染效果，节省了优化环节所需的大量人力。部分相关技术已在公司内广泛应用，累计落地项目超15个，并带领团队发表2篇AI国际顶会论文，1项AI国际比赛冠军、6项互娱技术创新奖和专利6项。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://ailab.netease.com/" target="_blank">https://ailab.netease.com/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>yangkewei@corp.netease.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="fangqing_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>基于蒙特卡洛的PDE求解方法
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>方清，中国科学技术大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>...
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://qingfang1208.github.io/" target="_blank">https://qingfang1208.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>fq1208@mail.ustc.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="fuxiaoming_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>传统几何表达
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>傅孝明，中国科学技术大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            中国科学技术大学数学科学学院副教授、博士生导师。分别于2011、2016年在中国科学技术大学获得学士、博士学位，2016年至2021年于中国科学技术大学任特任副研究员。研究领域为计算机图形学与计算机辅助设计，研究方向为几何处理、优化、建模、制造等。已在领域顶刊ACM
+            ToG/SIGGRAPH/SIGGRAPH Asia上发表28篇论文，获2024年SMA Young Investigator
+            Award、2024年安徽省应用数学青年科技奖、2023年安徽省青年数学奖、2022年入选中国科学院“青年创新促进会”。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="http://staff.ustc.edu.cn/~fuxm/">http://staff.ustc.edu.cn/~fuxm/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>fuxm@ustc.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="cuizhaopeng_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>三维扫描与重建：从两视图立体匹配到前馈式三维恢复
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>崔兆鹏，浙江大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            浙江大学计算机科学与技术学院“百人计划”研究员、博士生导师，国家级青年人才计划入选者。2017年至2020年在瑞士苏黎世联邦理工学院计算机视觉和几何实验室任高级研究员。研究方向为三维计算机视觉，具体包括三维重建、三维理解、SLAM、三维生成和三维运动规划等。近年来在计算机视觉、机器人、计算机图形学、机器学习等领域的顶级期刊和会议上发表论文60余篇，曾主持国家自然科学基金面上、专项项目等。目前担任Pattern
+            Recognition、IEEE RA-L等国际期刊编委，曾担任领域内顶级会议CVPR、ECCV、IJCAI领域主席，SIGGRAPH程序委员会委员，以及ICRA、IROS副编委等。曾获ICRA
+            2020机器视觉最佳论文提名、IROS 2021安全、安保和救援机器人最佳论文提名、3DV 2024最佳论文荣誉提名。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font>
+            </font><a style="color:#000000;" href="https://zhpcui.github.io/">https://zhpcui.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>zhpcui@zju.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="guoyulan_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>3D形状理解与分析
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>郭裕兰，中山大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            中山大学电子与通信工程学院教授，博士生导师，国家高层次青年人才。主要研究领域为空间智能与三维视觉，包括三维重建、理解、生成及机器人系统。主持国家自然科学基金联合重点项目等10余项，在IEEE
+            TPAMI和CVPR等期刊和会议发表学术论文200余篇，谷歌学术总被引2.7万余次，入选Clarivate全球高被引科学家、Elsevier中国高被引学者，获中国计算机学会自然科学一等奖、吴文俊人工智能优秀青年奖等奖励。担任中国图象图形学学会三维视觉专委会副主任，IEEE
+            Transactions on Image Processing高级领域编辑（SAE）。曾担任首届中国空间智能大会主席，历届中国三维视觉大会组委会主席，CVPR、ICCV、ECCV、NeurIPS、ICML、ACM
+            Multimedia等国际会议领域主席。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://www.yulanguo.cn/" target="_blank">https://www.yulanguo.cn/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>guoyulan@sysu.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="shenshuhan_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>城市场景结构化三维重建
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>申抒含，中科院自动化所
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            中国科学院自动化研究所研究员、博士生导师，中国科学院大学人工智能学院岗位教授，中国科学院工业视觉工程实验室副主任，工业具身智能北京市重点实验室副主任。研究领域为三维计算机视觉，包括大规模场景三维重建、具身机器人三维感知、场景结构化三维建模等。在计算机视觉、摄影测量、机器人等领域国际期刊和国际会议，如IEEE
+            TPAMI/TIP、IJCV、ISPRS
+            Journal、CVPR、ICCV、ECCV、ICRA、IROS等发表论文100余篇。作为项目负责人主持国家自然科学基金联合重点项目、北京市自然科学基金联合重点项目、以及各类企业研发项目20余项。曾获CVPR、SIGGRAPH、CAD/CG等会议三维视觉国际竞赛冠军6次，曾获中国自动化学会、中国图像图形学会、中国测绘学会、中国地理信息产业协会科学技术一等奖4次、二等奖1次。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font>
+            </font><a style="color:#000000;" href="http://3dv.ac.cn/faculty/shs/">http://3dv.ac.cn/faculty/shs/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>shshen@nlpr.ia.ac.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="jiangtengfei_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>3D扫描与重建在工业界的技术发展与应用
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>江腾飞，杭州先临
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            浙江大学计算机博士，正高级工程师，专注于计算机视觉与几何处理算法研究，领导开发多款口腔医疗与工业测量领域的专用三维扫描产品，获浙江省技术发明一等奖等多项荣誉。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://www.researchgate.net/profile/Tengfei-Jiang-3"
+              target="_blank">https://www.researchgate.net/profile/Tengfei-Jiang-3</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>jiangtengfei@shining3d.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="wangzeyu_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>交互式三维设计与建模
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>王泽宇，香港科技大学（广州）
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            香港科技大学（广州）信息枢纽计算媒体与艺术学域、人工智能学域助理教授，香港科技大学艺术与机器创造力学部助理教授，创意智能协同实验室负责人。于耶鲁大学计算机科学系获得博士学位，师从Julie Dorsey和Holly
+            Rushmeier教授；于北京大学智能科学系获得荣誉学士学位，师从查红彬和Katsushi Ikeuchi教授。研究方向为计算机图形学、人机交互、人工智能、数字文化遗产，已在包括TOG, SIGGRAPH,
+            TVCG, VR, CHI, ICCV, CVPR在内的重要国际期刊和会议上发表60余篇学术论文。担任SIGGRAPH Asia, Eurographics, Pacific
+            Graphics等国际会议的程序委员，CCF-CAD&CG, CCF-VRV, CSIG-3DV,
+            CSIG-IG等专委会和GAMES执行委员。入选国家级高层次青年人才、全国青联委员、CCF-腾讯犀牛鸟基金、Adobe研究基金，并获得最佳论文奖、多项最佳提名奖等荣誉。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font> <a style="color:#000000;"
+              href="https://zachzeyuwang.github.io/" target="_blank">https://zachzeyuwang.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>zeyuwang@ust.hk
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="chenanpei_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>神经渲染表达：几何和外观耦合
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>陈安沛，西湖大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>西湖大学助理教授、Inception3D实验室负责人。2016
+            年本科毕业于西安电子科技大学，2022年博士毕业于上海科技大学，之后于苏黎世联邦理工学院和图宾根大学从事博士后研究。研究方向聚焦在计算机图形学、三维视觉以及空间智能，致力于从二维图像中高效地感知三维世界，具体包括三维表征，内容合成和物理交互。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://apchenstu.github.io/">https://apchenstu.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>chenanpei@westlake.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="huangran_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>鸿蒙空间化和3DGS创新在鸿蒙上的0到1商用
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>黄然，华为
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>终端BG图形图像首席架构师，华为公司科学家，八级专家。
+            2007年北航计算机专业硕士毕业，先后就职于AMD、华为公司，图形领域已从事18年。 2016年加入华为终端，从事图形和游戏渲染相关开发工作， GPU
+            Turbo核心技术成员，鸿蒙图形栈架构师，负责统一渲染、2D/3D渲染等，并从0到1构建3DGS技术入端，发布Remy、空间影像壁纸等。当前作为终端图形TMG主任、图形媒体显示TMG主任，负责
+            单框架鸿蒙图形架构设计。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://blog.csdn.net/huangranbj">https://blog.csdn.net/huangranbj</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>Frank.huangran@huawei.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="wangpengshuai_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>三维生成模型 (1) (2)
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>王鹏帅，北京大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            北京大学助理教授、博士生导师，入选北京大学博雅青年学者、北京市智源学者。研究方向为图形学、几何处理、三维深度学习。在学术会议SIGGRAPH（ASIA）、CVPR等上发表近30篇学术论文。担任著名图形学期刊IEEE
+            TVCG，Computers & Graphics的编委、著名图形学国际会议SIGGRAPH Asia、Eurographics、SGP等的会议程序委员。2023年获得亚洲图形学学会 (Asiagraphics)
+            青年学者奖，2025年获得中国三维视觉大会（China3DV）年度优秀青年学者奖、计算机辅助设计与图形学（CCF-CAD&CG） 青年科技奖，2026年获得 CVMJ 最佳论文奖。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://wang-ps.github.io/">https://wang-ps.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>wangps@hotmail.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="zhangbiao_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>三维生成模型 (1) (2)
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>张彪，西安交通大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            本科及硕士毕业于西安交通大学，博士毕业于阿卜杜拉国王科技大学（KAUST），现在西安交通大学任教授。其研究方向为计算机图形学与机器学习的交叉领域，近期重点关注生成模型与表示学习。他曾在
+            SIGGRAPH、CVPR、ICCV、ICLR、NeurIPS 等会议发表论文。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://1zb.github.io">https://1zb.github.io</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>biao.z@outlook.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="wangtengfei_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>3D大模型：从物体生成到世界模型
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>王腾飞，腾讯混元
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>腾讯混元世界模型负责人，带领团队从0搭建了混元世界模型的数据与算法体系，先后发布HY World
+            1.0、2.0、 WorldPlay、WorldMirror等多个模型。博士毕业于香港科技大学，研究方向为三维视觉与世界模型，已在人工智能顶级期刊和会议上发表论文 40 余篇，谷歌学术引用量 3500
+            余次，系列开源项目在 GitHub 累计星标 20000 余次，研究工作曾获评 ICCV 和 ECCV 最有影响力论文。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font> <a style="color:#000000;"
+              href="https://tengfei-wang.github.io/">https://tengfei-wang.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>tfwang@connect.ust.hk
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="muyadong_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>装配体和关节可动对象生成技术
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>穆亚东，北京大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            北京大学长聘副教授、北大博雅青年学者、北京智源学者，新闻出版智能媒体技术重点实验室副主任，先后在北京大学获得理学学士和理学博士学位。曾在新加坡国立大学、美国哥伦比亚大学、华为香港诺亚方舟实验室、美国电话电报公司研究院（AT&T
+            Labs）担任研究职位，主要研究领域为计算机视觉和机器人学，在CVPR等中国计算机学会论文推荐列表A类会议和T-PAMI等ACM/IEEE汇刊发表论文超过100篇，申请PCT、美国或中国专利40余项。获得陕西省自然科学一等奖、国际会议SIGIR最佳论文提名奖、北京大学京东方奖教金、杨王院士奖教金等。担任多媒体领域旗舰期刊IEEE
+            Transactions on
+            Multimedia编委，10余次担任人工智能领域核心会议（如CVPR、ICCV、ECCV）的组委会成员或领域主席。近期主要研究方向为多模态基础模型、视觉基础模型、三维重建与生成、具身智能体、机器人VLA模型等，代表性工作包括视觉生成模型LaVIT系列、pyramidFlow等。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="http://www.muyadong.com/" target="_blank">http://www.muyadong.com/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>myd@pku.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="shenglv_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>基于生成式AI的三维场景生成
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>盛律，北京航空航天大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            北京航空航天大学教授，博导，入选国家级青年人才、智源学者、小米青年学者、斯坦福全球前2%顶尖科学家排行榜单。主要研究方向为三维视觉、多模态大模型和具身智能。在IEEE TPAMI/ACM
+            TOG/IJCV以及CVPR/ICCV/ICLR/ECCV等重要国际期刊和会议发表论文80余篇，Google Scholar显示被引用数9400余次。现任ACM Computing
+            Surveys编委，CVPR/ICLR/ECCV/ACM
+            Multimedia/AAAI等领域主席，以及多个领域顶会顶刊审稿人和程序委员。CCF高级会员，任CCF和CSIG多个专委会执行委员，VALSE执行领域主席。主持或参与多项国家自然科学基金、科技部重点研发计划和省部级重点研发计划项目。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://lucassheng.github.io/" target="_blank">https://lucassheng.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>lsheng@buaa.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="liuzhongyuan_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>教 AI 摆放世界：可控三维物体摆放与场景生成
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>刘中远，腾讯游戏
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>资深 AI 研究员、游戏开发者，长期专注于 AI
+            游戏与虚拟世界生成方向的探索，曾任游戏场景智能生成方向的项目负责人。本科与硕士毕业于鲁迅美术学院建筑艺术设计学院，博士毕业于中国科学技术大学数学科学学院计算数学专业，师从刘利刚教授。有美学/设计与算法工程的双重背景，研究兴趣涵盖计算机图形学、计算几何、智能制造、强化学习、多模态大模型以及多智能体协作系统，在
+            SIGGRAPH、TOG、AAAI、IEEE TVCG、Pacific Graphics、SPM
+            等国际会议与期刊发表多篇论文，近年来持续从事三维场景布局与智能体场景生成相关研究。曾主导并参与数字雕塑、建筑设计与智能制造等多个落地项目，相关作品曾入选全国美展，并获吉尼斯世界纪录、米兰设计大赛金奖等荣誉。长期致力于将艺术与设计需求高效地转化为由算法、代码、AI构建的自动游戏体验生产管线，通过技术创新推动数字艺术与智能领域的深度融合，为虚拟世界和具身智能打造高质量、可交互的艺术场景，希望做出能让人与AI在虚拟世界生活/冒险的，具有高质量游戏体验的，由AI智能体群负责运行与维护的原生AI游戏社交平台/引擎/数据库虚拟世界
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://digiartomnis.github.io/" target="_blank">https://digiartomnis.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>lockliu@tencent.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="muyao_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>面向具身智能的三维生成、世界模型与自主进化
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>穆尧，上海交通大学
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>上海交通大学长聘教轨助理教授，入选国家级青年人才计划，上海市海外高层次青年人才，智源青年学者，
+            EAI-100
+            2025学术新锐。博士毕业于香港大学计算机系，访学于苏黎世联邦理工学院、新加坡国立大学等。穆尧博士长期从事具身智能的基础研究，深耕多模态具身认知、具身世界模型和具身自主进化系统等方向，担任了NeurIPS、ICLR、CORL等国际机器学习顶级会议的领域主席，中国计算机学会智能机器人专委会执委，中国图形图像学会三维视觉专委会专委，Valse执行领域主席，在IJRR、RSS、NeurIPS、ICML、CVPR等计算机领域国际顶级期刊和会议发表论文50余篇，谷歌学术引用超3800余次。曾荣获2026年ICRA最优论文奖提名、2025年IROS最优论文奖提名、2024年ECCV协同具身智能研讨会最优论文奖、2024年中国自动化学会自主机器人研讨会奖学金（全国5人）、2021年IEEE
+            ICCAS2020大会最优学生论文奖、IEEE IV2021最优学生论文提名奖等多项奖励。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://www.cs.sjtu.edu.cn/jiaoshiml/muyao.html"
+              target="_blank">https://www.cs.sjtu.edu.cn/jiaoshiml/muyao.html</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>muyao@sjtu.edu.cn
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="jiarongfei_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>3D生成大模型的表征之路
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>贾荣飞，数美万物
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>
+            北京航空航天大学博士毕业。目前是数美万物联合创始人，负责AI设计及3D生成模型研究。团队发布3D大模型工具Hitem3D，Sparc3D技术将几何生成精度提升到1536^3，Hitem2.0是业内第一个原生纹理大模型产品。曾任搜狗广告算法团队负责人，阿里巴巴大淘宝3D算法负责人。带领团队实现业内首个基于NeRF的商品三维重建工具ObjectDrawer，并首先实现了NeRF在手机端实时渲染。开源3DFRONT、3DFUTURE数据集，其中3DFRONT数据集获2021chinagraph首届开源数据集奖。在CVPR、ECCV、ICCV、NeurIPS、KDD等会议发表论文十余篇。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>jiarongfei@mathmagical.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="caoyanpei_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>融合经典与前沿：生成式三维建模与全栈架构实践
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>曹炎培，VAST
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>VAST
+            联合创始人兼首席科学家。清华大学计算机科学与技术系博士（2009-2018），师从胡事民院士，专注计算机图形学与生成式 AI 研究。
+            在学术与开源生态领域，曾获 Pacific Graphics 2014 最佳论文奖、SIGGRAPH Asia 2024 及 CVMJ 最佳论文荣誉提名。由其主导的 threestudio、TripoSR 等知名
+            3D AI 开源项目累计 GitHub Star 数超 20000，并获 2023 年度 CCF 优秀图形开源项目奖。
+            曾任 4D 重建创业公司 Owlii 创始团队成员及 CTO（2019 年被快手收购）、快手 Y-tech 高级研究员、腾讯 AI Lab 与 PCG ARC Lab 专家研究员及三维方向负责人。在实时 4D
+            重建、人体捕捉及生成式 3D 大模型等领域，完成了从底层算法架构创新到千万级产品全链路落地的多次实践。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;" href="https://yanpei.me/"
+              target="_blank">https://yanpei.me/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>caoyanpei@gmail.com
+          </li>
+        </ul>
+        <p style="border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <ul style="font-size:16px;font-style:normal;font-weight:300;text-align:left;padding-left:20px;">
+          <a id="xujiale_position" style="position:relative; top:-72px; display: block; height: 0;"></a><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">课程题目：</font>面向工业可用的3D生成
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">授课讲者：</font>许家乐，Meshy
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者简介：</font>Meshy AI 高级研究科学家，致力于 3D 生成式AI前沿技术研究。2024
+            年博士毕业于上海科技大学信息学院，师从高盛华教授。此前曾在腾讯 ARC Lab 担任高级研究员，从事 3D 重建与生成方向的研究工作。在CVPR、ICCV、ECCV、SIGGRAPH
+            ASIA等国际顶级会议发表论文十余篇。
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">讲者主页：</font><a style="color:#000000;"
+              href="https://bluestyle97.github.io/" target="_blank">https://bluestyle97.github.io/</a>
+          </li><br>
+          <li>
+            <font style="color:#4bbdd0;font-weight:500;">E-mail：</font>bluestyle928@gmail.com
+          </li>
+        </ul>
+
+      </div>
+      <footer class="footer">
+        <p>© 2026 USTC CG Summer School</p>
+      </footer>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="./js_files/jquery.min.js"></script>
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery.min.js?version=2.0.02"><\/script>')
+  </script>
+  <script src="./js_files/bootstrap.min.js"></script>
+  <script src="./js_files/docs.min.js"></script>
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="./js_files/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+
+</html>

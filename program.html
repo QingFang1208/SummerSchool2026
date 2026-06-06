@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./favicon.ico">
+
+  <title>“三维几何表达、建模与生成”前沿讲习班</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css_files/bootstrap.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="./css_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./css_files/GAMES_style.css" rel="stylesheet">
+  <link href="./css_files/GAMES_Mobile_style.css" rel="stylesheet">
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="./js_files/ie-emulation-modes-warning.js"></script>
+
+
+
+  <style id="__web-inspector-hide-shortcut-style__">
+    .__web-inspector-hide-shortcut__,
+    .__web-inspector-hide-shortcut__ *,
+    .__web-inspector-hidebefore-shortcut__::before,
+    .__web-inspector-hideafter-shortcut__::after {
+      visibility: hidden !important;
+    }
+  </style>
+  <link href="./css_files/common.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <!--<a class="navbar-brand" href="#"></a>-->
+
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.html">课程首页</a></li>
+          <li class="active"><a href="./program.html">课程安排</a></li>
+          <li><a href="./speaker.html">授课教师</a></li>
+          <li><a href="http://staff.ustc.edu.cn/~lgliu/Courses/SummerSchool/USTC-summer-school.html"
+              target="_blank">历年暑期课程</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="starter-template">
+
+      <div class="jumbotron">
+        <h1 style="font-size:42px">课程安排</h1>
+        <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> <br></p>
+        <br>
+        <div class="tableA">
+          <table class="table table-striped">
+            <thead>
+              <tr style="background-color:#ffffff">
+                <td>日期</td>
+                <td>内容</td>
+                <td>时间</td>
+                <td>授课老师</td>
+                <td>课程题目</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td width="6%" rowspan="7" style="background-color:#ffffff">7月6日<br><br>星期一</td>
+                <td width="11%" rowspan="4" style="background-color:#ffffff">前沿报告</td>
+                <td width="11%">08:30-08:50</td>
+                <td width="22%">刘利刚，中国科学技术大学</td>
+                <td width="40%">课程介绍</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>08:50-09:50</td>
+                <td>刘缘，香港科技大学</td>
+                <td>TBD</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>10:00-11:00</td>
+                <td>杨克微，网易公司</td>
+                <td>可微渲染技术在游戏中的应用</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>11:10-12:00</td>
+                <td>方清，中国科学技术大学</td>
+                <td>基于蒙特卡洛的PDE求解方法</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td rowspan="3" style="background-color:#ffffff">项目讨论</td>
+                <td>14:30-15:10</td>
+                <td>某博士生？或老师？</td>
+                <td>学习和科研中的AI工具使用</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>15:10-16:30</td>
+                <td>课题指导老师</td>
+                <td>课题介绍</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>16:30-17:30</td>
+                <td>课题指导老师</td>
+                <td>分组讨论</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td width="6%" rowspan="14" style="background-color:#ffffff">7月7日<br><br>星期二</td>
+                <td width="11%" rowspan="14" style="background-color:#ffffff">专题课程<br>三维几何表达、建模与生成 (1)</td>
+                <td width="11%">08:30-08:40</td>
+                <td width="22%">刘利刚，中国科学技术大学</td>
+                <td width="40%">课程导论与3D表达概览</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>08:40-09:10</td>
+                <td>傅孝明，中国科学技术大学</td>
+                <td>传统几何表达</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>09:10-09:50</td>
+                <td>崔兆鹏，浙江大学</td>
+                <td>三维扫描与重建：从两视图立体匹配到前馈式三维恢复</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>09:50-10:00</td>
+                <td colspan="2">茶歇</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>10:00-10:40</td>
+                <td>郭裕兰，中山大学</td>
+                <td>3D形状理解与分析</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>10:40-11:20</td>
+                <td>申抒含，中科院自动化所</td>
+                <td>城市场景结构化三维重建</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>11:20-11:50</td>
+                <td>江腾飞，杭州先临</td>
+                <td>产业前沿：3D扫描与重建在工业界的技术发展与应用</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>11:50-14:30</td>
+                <td colspan="2">午餐</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>14:30-15:10</td>
+                <td>王泽宇，香港科技大学（广州）</td>
+                <td>交互式三维设计与建模</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>15:10-16:00</td>
+                <td>陈安沛，西湖大学</td>
+                <td>神经几何表达：几何与外观耦合</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>16:00-16:30</td>
+                <td>黄然，华为</td>
+                <td>产业前沿：鸿蒙空间化和3DGS创新在鸿蒙上的0到1商用</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>16:30-16:40</td>
+                <td colspan="2">茶歇</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>16:40-17:40</td>
+                <td>王鹏帅，北京大学<br>张彪，西安交通大学</td>
+                <td>三维生成模型 (1)</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>18:00-19:30</td>
+                <td colspan="2">晚餐</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td width="6%" rowspan="13" style="background-color:#ffffff">7月8日<br><br>星期三</td>
+                <td width="11%" rowspan="13" style="background-color:#ffffff">专题课程<br>三维几何表达、建模与生成 (2)</td>
+                <td width="11%">08:30-09:30</td>
+                <td width="22%">张彪，西安交通大学<br>王鹏帅，北京大学</td>
+                <td width="40%">三维生成模型 (2)</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>09:30-10:00</td>
+                <td>王腾飞，腾讯混元</td>
+                <td>产业前沿：3D大模型——从物体生成到世界模型</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>10:00-10:10</td>
+                <td colspan="2">茶歇</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>10:10-10:50</td>
+                <td>穆亚东，北京大学</td>
+                <td>装配体和关节可动对象生成技术</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>10:50-11:30</td>
+                <td>盛律，北京航空航天大学</td>
+                <td>基于生成式AI的三维场景生成</td>
+              </tr>
+              <tr style="background-color:rgb(253, 233, 217)">
+                <td>11:30-12:00</td>
+                <td>刘中远，腾讯游戏</td>
+                <td>产业前沿：教 AI 摆放世界——可控三维物体摆放与场景生成</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>12:00-14:30</td>
+                <td colspan="2">午餐</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>14:30-15:30</td>
+                <td>穆尧，上海交通大学</td>
+                <td>面向具身智能的三维生成、世界模型与自主进化</td>
+              </tr>
+              <tr style="background-color:rgb(183, 240, 208)">
+                <td>15:30-15:40</td>
+                <td colspan="2">茶歇</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>15:40-16:10</td>
+                <td>贾荣飞，数美万物</td>
+                <td>产业前沿：3D生成大模型的表征之路</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>16:10-16:40</td>
+                <td>曹炎培，VAST</td>
+                <td>产业前沿：融合经典与前沿——生成式三维建模与全栈架构实践</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>16:40-17:10</td>
+                <td>许家乐，Meshy</td>
+                <td>产业前沿：迈向工业可用的3D生成</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>17:10-17:20</td>
+                <td>刘利刚，中国科学技术大学</td>
+                <td>课程总结</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td width="6%" rowspan="2" style="background-color:#ffffff">7月9日<br><br>星期四</td>
+                <td width="11%" rowspan="2" style="background-color:#ffffff">项目讨论</td>
+                <td width="11%">08:30-11:30</td>
+                <td width="22%">课题指导老师</td>
+                <td width="40%">分组讨论</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>14:30-17:30</td>
+                <td>课题指导老师</td>
+                <td>分组讨论</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td width="6%" rowspan="2" style="background-color:#ffffff">7月10日<br><br>星期五</td>
+                <td width="11%" rowspan="2" style="background-color:#ffffff">项目讨论</td>
+                <td width="11%">08:30-11:30</td>
+                <td width="22%">课题指导老师</td>
+                <td width="40%">分组讨论</td>
+              </tr>
+              <tr style="background-color:rgb(218, 238, 243)">
+                <td>14:30-17:30</td>
+                <td>课题指导老师</td>
+                <td>分组讨论</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+          <h1 style="font-size:30px">课程大纲</h1>
+          <p style="font-size:22px;border-bottom: 7px solid rgb(218, 238, 243);"> </p>
+          <div class="tableA">
+            <table class="table table-striped">
+              <tbody>
+                <tr style="background-color:#ffffff">
+                  <td colspan="2" align="center"><strong>7月6日 星期一</strong></td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">课程介绍<br>刘利刚，中国科学技术大学<br>08:30-08:50</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">TBD<br>刘缘，香港科技大学<br>08:50-09:50</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">可微渲染技术在游戏中的应用<br>杨克微，网易公司<br>10:00-11:00</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      本课程聚焦可微渲染技术在游戏资产优化中的实战应用。可微渲染通过将渲染过程变为可导，实现"渲染→比较→反向优化"的闭环，为游戏中进行资产优化和提升运行效率提供了自动化解决方案。
+                      课程将围绕模型及切换距离优化、Billboard/Impostor优化、贴图及UV优化、渲染管线优化、代理体优化五大方向展开，介绍可微渲染在游戏资产优化各环节中的技术方案与实现路径。课程不止于理论方法介绍，更着重分享项目实际落地经验——如何精准定位项目瓶颈、如何将学术方法改造为可在生产环境中实际运行的工具，真正服务于项目性能与品质需求。
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">基于蒙特卡洛的PDE求解方法<br>方清，中国科学技术大学<br>11:10-12:00</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">学习和科研中的AI工具使用<br>某博士生？或老师？<br>14:30-15:10</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">课题介绍<br>课题指导老师<br>15:10-16:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">分组讨论<br>课题指导老师<br>16:30-17:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:#ffffff">
+                  <td colspan="2" align="center"><strong>7月7日 星期二</strong></td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">课程导论与3D表达概览<br>刘利刚，中国科学技术大学<br>08:30-08:40</td>
+                  <td width="70%" align="left">
+                    <ul>
+                      <li>3D几何的应用领域及重要性</li>
+                      <ul>
+                        <li>实（CAD、工业制造、3D打印等）</li>
+                        <li>虚（游戏、影视、VR、AIGC等）</li>
+                        <li>虚实结合（AR/XR、数字孪生、机器人、自驾等）</li>
+                      </ul>
+                      <li>3D表达的应用需求与评价维度</li>
+                      <ul>
+                        <li>显式与隐式</li>
+                        <li>几何与外观</li>
+                        <li>精确与高效</li>
+                        <li>可编辑与可生成</li>
+                        <li>可渲染与可分析</li>
+                      </ul>
+                      <li>3D表达的演化史</li>
+                      <ul>
+                        <li>解析表达（NURBS、SDF）</li>
+                        <li>离散表达（Mesh/Points、Voxels）</li>
+                        <li>生成表达（NeRF、3D Gaussian、Generative AI）</li>
+                      </ul>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">传统几何表达<br>傅孝明，中国科学技术大学<br>08:40-09:10</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      以传统几何表达为核心，系统梳理三维形状的经典描述方式、关键技术与转换机制。
+                    </ul>
+                    <ul>
+                      <li>离散表达</li>
+                      <ul>
+                        <li>点云：无结构采样点集</li>
+                        <li>体素：规则三维网格</li>
+                        <li>八叉树：自适应空间剖分</li>
+                        <li>网格：三角面片与半边结构</li>
+                      </ul>
+                      <li>参数化表达</li>
+                      <ul>
+                        <li>边界表示与CSG</li>
+                        <li>NURBS样条曲面</li>
+                        <li>参数驱动与特征建模</li>
+                      </ul>
+                      <li>隐式表达</li>
+                      <ul>
+                        <li>符号距离函数（SDF）</li>
+                        <li>水平集等值面</li>
+                        <li>Marching Cubes提取</li>
+                      </ul>
+                      <li>几何的表观属性表达</li>
+                      <ul>
+                        <li>颜色与纹理贴图</li>
+                        <li>材质与BRDF模型</li>
+                        <li>UV映射与顶点颜色</li>
+                      </ul>
+                      <li>各种表达的相互转换</li>
+                      <ul>
+                        <li>点云转网格</li>
+                        <li>CAD曲面离散化</li>
+                        <li>隐式曲面多边形化</li>
+                        <li>网格体素化与简化</li>
+                        <li>多表达融合流程</li>
+                      </ul>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">三维扫描与重建：从两视图立体匹配到前馈式三维恢复<br>崔兆鹏，浙江大学<br>09:10-09:50</td>
+                  <td width="70%" align="left">
+                    <ul>
+                      <li>三维采集设备与数据获取</li>
+                      <li>两视图立体匹配与多视角几何</li>
+                      <li>点云处理与 Mesh 建模</li>
+                      <li>SfM 与 SLAM 三维重建</li>
+                      <li>数据驱动的三维重建方法</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">3D形状理解与分析<br>郭裕兰，中山大学<br>10:00-10:40</td>
+                  <td width="70%" align="left">
+                    <ul>
+                      <li>绪论——3D形状理解与分析任务：形状分割、识别、分类、匹配、检索、补全</li>
+                      <li>传统3D特征描述子</li>
+                      <ul>
+                        <li>Spin Image</li>
+                        <li>SHOT</li>
+                        <li>RoPS</li>
+                        <li>3D SIFT</li>
+                      </ul>
+                      <li>MLP/CNN架构的3D表征学习</li>
+                      <ul>
+                        <li>点云特征学习：PointNet、PointNet++、Point CNN</li>
+                        <li>网格特征学习：MeshCNN</li>
+                        <li>体素特征学习：3D CNN、OctNet</li>
+                        <li>投影图特征学习：MVCNN</li>
+                      </ul>
+                      <li>Transformer架构的3D表征学习</li>
+                      <ul>
+                        <li>点云特征学习：PointTransformer、Point Cloud Transformer (PCT)</li>
+                        <li>网格特征学习：Mesh Transformer</li>
+                        <li>体素特征学习：Voxel Transformer</li>
+                      </ul>
+                      <li>总结与展望</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">城市场景结构化三维重建<br>申抒含，中科院自动化所<br>10:40-11:20</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      了解大规模城市场景结构化三维建模在结构表征、重建方法、行业应用方面的挑战和进展。
+                    </ul>
+                    <ul>
+                      <li>城市场景结构化表征：线元、面元、隐式等</li>
+                      <li>解析式结构化重建：基于解析计算和全局优化的重建方法，LIMAP、City3D、FloorUSG等</li>
+                      <li>检测式结构化重建：基于基元检测和结构回归的重建方法，PC2WF、PBWR、BWFormer等</li>
+                      <li>生成式结构化重建：基于扩散模型和自回归模型的重建方法，Point2Building、EdgeDiff、BuildingGPT等</li>
+                      <li>结构化重建行业应用：实景三维城市、轻量化视觉定位等</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">3D扫描与重建在工业界的技术发展与应用<br>江腾飞，杭州先临<br>11:20-11:50</td>
+                  <td width="70%" align="left">
+                    <ul>
+                      <li>工业界中的三维重建问题</li>
+                      <li>常用三维重建方法与应用</li>
+                      <li>智能重建方法展望</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">交互式三维设计与建模<br>王泽宇，香港科技大学（广州）<br>14:30-15:10</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      了解人机交互式三维设计与建模的基本概念与发展脉络，理解CAD建模、草图建模、雕刻建模等建模方式的技术路径。
+                    </ul>
+                    <ul>
+                      <li>三维建模的定义：人类设计师的先验与几何约束的结合</li>
+                      <li>CAD建模：从二维曲线到三维形状，拉伸、旋转、扫掠、放样，参数化建模，基于网格编辑的直接建模</li>
+                      <li>基于草图的建模：自由形状的三维设计，Teddy草图系统，从轮廓线条膨胀出三维表面，视角与几何先验，cross-section与表面曲率场的优化，基于深度学习的方法</li>
+                      <li>编辑与变形：自由网格变形，基于微分坐标的编辑，基于skeleton和cage等代理的编辑，skinning与网格变形和动画</li>
+                      <li>三维雕刻与细节建模：雕刻笔刷的几何定义，向量变形场，物理雕刻与数字雕刻，生成式AI赋能的三维雕刻，ZBrush、Mudbox等工具</li>
+                      <li>其他建模方式：过程式建模，分形、L-systems，基于物理的建模</li>
+                      <li>三维建模工具与展望：CAD建模工具SolidWorks, AutoCAD, Rhino, Catia，网格建模工具Blender, 3D Max,
+                        Maya，草图建模工具SketchUp等</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">神经几何表达：几何与外观耦合<br>陈安沛，西湖大学<br>15:10-16:00</td>
+                  <td width="70%" align="left">
+                    <ul>
+                      <li>新视角合成与场景表示
+                        <ul>
+                          <li>新视角合成问题定义</li>
+                          <li>从图像驱动方法到三维场景表示</li>
+                        </ul>
+                      </li>
+                      <li>神经辐射场（Neural Radiance Fields）
+                        <ul>
+                          <li>体渲染原理与神经表达</li>
+                          <li>训练、渲染与几何提取</li>
+                          <li>动态场景重建</li>
+                        </ul>
+                      </li>
+                      <li>高斯泼溅（3D Gaussian Splatting）
+                        <ul>
+                          <li>高斯基元表示与光栅化原理</li>
+                          <li>压缩、渲染与几何提取</li>
+                          <li>动态场景重建</li>
+                        </ul>
+                      </li>
+                      <li>前馈式新视角合成
+                        <ul>
+                          <li>显式表征驱动的前馈式建模</li>
+                          <li>无显式表征驱动的前馈式建模</li>
+                        </ul>
+                      </li>
+                      <li>课程总结与讨论
+                        <ul>
+                          <li>几何与外观耦合建模的挑战</li>
+                          <li>新视角合成的未来方向讨论</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">鸿蒙空间化和3DGS创新在鸿蒙上的0到1商用<br>黄然，华为<br>16:00-16:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      鸿蒙系统从2019年发布至今，已经成功在华为手机上实现了6000万商用的突破，从跳越生死线进入到创新阶段。而3DGS技术在鸿蒙空间化战略上发挥了重要作用，成为吸引消费者的关进技术，从Remy到3D空间影像壁纸，从空间影像壁纸到更多鸿蒙生态应用。本课程通过介绍鸿蒙空间化方舟图形引擎和3DGS的实践落地，让同学们学到从一个图形技术到商用落地的全过程。
+                    </ul>
+                    <ul>
+                      <li>鸿蒙空间化与方舟图形引擎介绍</li>
+                      <li>方舟图形引擎的整体架构与三大用户体验</li>
+                      <li>3DGS技术介绍与商用落地（含Remy、空间影像壁纸）</li>
+                      <li>未来空间化技术展望</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">三维生成模型 (1)<br>王鹏帅，北京大学<br>张彪，西安交通大学<br>16:40-17:40</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      一、生成模型基础：从概率建模到三维资产生成
+                    </ul>
+                    <ul>
+                      <li>VAE：从连续潜空间生成三维形状</li>
+                      <ul>
+                        <li>编码器：将数据压缩为潜变量分布</li>
+                        <li>解码器：从潜变量重建数据</li>
+                        <li>重参数化技巧：使随机采样过程可反向传播</li>
+                        <li>KL散度约束：使潜空间接近标准高斯分布</li>
+                        <li>重建损失：保证生成结果接近原始数据</li>
+                      </ul>
+                      <li>GAN：从对抗学习到高真实感生成</li>
+                      <ul>
+                        <li>生成器：从随机噪声生成样本</li>
+                        <li>判别器：区分真实样本与生成样本</li>
+                        <li>对抗损失：推动生成结果逼近真实数据分布</li>
+                        <li>训练不稳定性：GAN的经典难点</li>
+                      </ul>
+                      <li>自回归模型（Auto-Regressive Model）：将生成过程转化为逐token预测</li>
+                      <ul>
+                        <li>序列建模</li>
+                        <li>条件概率分解</li>
+                        <li>Transformer结构</li>
+                        <li>Next-token prediction（下一个token预测）</li>
+                      </ul>
+                      <li>扩散模型：从噪声中逐步恢复三维结构</li>
+                      <ul>
+                        <li>前向过程：逐步向数据加入高斯噪声</li>
+                        <li>反向过程：学习如何从噪声逐步还原数据</li>
+                        <li>模型可预测噪声、干净样本或score</li>
+                      </ul>
+                      <li>Flow Matching：从逐步去噪到学习连续生成路径</li>
+                      <ul>
+                        <li>连续时间生成模型</li>
+                        <li>ODE视角</li>
+                        <li>概率路径</li>
+                        <li>从噪声分布到数据分布的传输过程</li>
+                        <li>与扩散模型的统一关系</li>
+                      </ul>
+                    </ul>
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      二、三维数据表征：从基础表示到生产级表示
+                    </ul>
+                    <ul>
+                      <li>基础表征：体素（Voxel）、点云（Point Cloud）、多边形网格（Polygonal Mesh）</li>
+                      <li>隐式场表征：占用场（Occupancy）、符号距离场（SDF）、神经辐射场（NeRF）、三平面（Triplane）</li>
+                      <li>集合表征：VecSet（向量集合），将三维形状编码为无序向量集合</li>
+                      <li>稀疏体素：Octree、SLAT、O-Voxel（TRELLIS.2）等方法，缓解传统体素的内存开销问题并支持高分辨率生成</li>
+                      <li>效果与效率对比：从几何精度、纹理质量、拓扑灵活性、推理速度和训练成本五个维度比较各类表征的优劣</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:#ffffff">
+                  <td colspan="2" align="center"><strong>7月8日 星期三</strong></td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">三维生成模型 (2)<br>张彪，西安交通大学<br>王鹏帅，北京大学<br>08:30-09:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      三、里程碑时间线：由表征驱动的三维生成方法演进
+                    </ul>
+                    <ul>
+                      <li>经典探索期（2016-2022）：从直接生成到隐式表示</li>
+                      <ul>
+                        <li>早期直接生成方法</li>
+                        <li>隐式表示革命</li>
+                        <li>关键突破：证明隐式表示能够生成高质量连续表面</li>
+                      </ul>
+                      <li>SDS阶段（2022-2023）：利用二维先验缓解三维数据匮乏问题</li>
+                      <ul>
+                        <li>核心原理：Score Distillation Sampling（SDS）利用预训练二维扩散模型指导三维表示优化</li>
+                        <li>代表模型：DreamFusion、Magic3D等</li>
+                        <li>局限性：每个样本需要单独优化（分钟级），且存在多视角不一致、几何细节不足等问题</li>
+                      </ul>
+                      <li>多视角扩散阶段（2023-2024）：前馈大模型涌现</li>
+                      <ul>
+                        <li>核心思想：先生成一致的多视角图像，再通过前馈重建模型得到三维结构</li>
+                        <li>代表模型：Instant3D、Wonder3D、InstantMesh等</li>
+                        <li>技术特点：推理速度大幅提升（10秒内），可批量生成，但几何精度仍有提升空间</li>
+                      </ul>
+                      <li>原生三维生成大模型（2023-2025）：面向生产级应用的两条路线</li>
+                      <ul>
+                        <li>路线一：基于稀疏体素的方法；优势是天然支持空间结构，代表模型包括TRELLIS v1/v2、Sparc3D</li>
+                        <li>路线二：基于VecSet的方法；优势是表示紧凑、训练高效、几何细节丰富，代表模型包括3DShape2VecSet、CLAY、Hunyuan3D、TripoSG</li>
+                      </ul>
+                      <li>多边形网格直接生成（2025年至今）：端到端生产级资产生成</li>
+                      <ul>
+                        <li>核心挑战：直接生成拓扑正确、结构合理、面数高效的三角形网格</li>
+                        <li>代表模型：PolyGen、MeshGPT等</li>
+                        <li>技术意义：直接输出可用于游戏、影视和工业设计的标准网格格式，减少后处理，更接近端到端生产流程</li>
+                      </ul>
+                    </ul>
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      四、三维生成技术发展趋势与生产落地挑战
+                    </ul>
+                    <ul>
+                      <li>表征融合趋势：稀疏体素与VecSet结合、网格与隐式表示统一</li>
+                      <li>效率与质量的平衡：从“能生成”走向“生成得又快又好”</li>
+                      <li>生产级需求：水密性、拓扑正确性、PBR材质支持和可编辑性</li>
+                      <li>未来方向：4D动态生成、大规模场景生成、交互式编辑和多模态统一生成</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">3D大模型：从物体生成到世界模型<br>王腾飞，腾讯混元<br>09:30-10:00</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      理解工业管线中对3D生成模型的需求，理解3D物体生成的前沿进展，理解3D世界模型的前沿方向。
+                    </ul>
+                    <ul>
+                      <li>腾讯混元大模型介绍</li>
+                      <li>混元3D：3D物体生成的进展与应用</li>
+                      <li>混元World：3D世界模型的进展与应用</li>
+                      <li>总结与展望</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">装配体和关节可动对象生成技术<br>穆亚东，北京大学<br>10:10-10:50</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      了解和掌握近年来装配体和关节可动对象生成的最新技术。
+                    </ul>
+                    <ul>
+                      <li>任务概述和基础技术介绍</li>
+                      <li>图网络与序列生成</li>
+                      <li>基于扩散模型的端到端生成</li>
+                      <li>基于多模态大模型和智能体的装配生成</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">基于生成式AI的三维场景生成<br>盛律，北京航空航天大学<br>10:50-11:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      理解三维场景生成的主要流程与关键挑战，熟悉基于多模态学习与智能体推理的三维场景生成研究范式。
+                    </ul>
+                    <ul>
+                      <li>三维场景生成的基本任务与主要挑战</li>
+                      <li>基于多模态学习的三维场景生成：从文本、图像或者视频生成符合视觉、语义与结构需求的三维场景，包含单一场景生成与组合式场景生成等</li>
+                      <li>基于智能体推理的三维场景生成：LLM/VLM等智能体驱动的设计意图理解、任务拆解与方案规划，以及三维资产生成、空间约束推理、布局生成与优化、迭代反馈修正等</li>
+                      <li>趋势与展望：从静态三维场景走向动态四维场景生成，从视觉与几何建模走向物理与语义内生嵌入，以及实际应用落地等方面的趋势与发展方向</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">教 AI 摆放世界：可控三维物体摆放与场景生成<br>刘中远，腾讯游戏<br>11:30-12:00</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      让 AI 学会构建一个可交互、可沉浸的虚拟世界，是计算机图形学、人工智能与艺术设计交叉地带最激动人心的方向之一。本课程会先用少量篇幅，带大家俯瞰 AI
+                      生成虚拟世界、世界模型与艺术创作的整体图景，然后把镜头聚焦到其中一个最基础、也最关键的具体问题——三维场景中的物体摆放。围绕这个问题，课程将依次讲解：场景搭建如何被建模为&quot;单物体迭代摆放&quot;；为什么基于有向包围盒的传统表示难以处理支撑、包含、避碰等精细几何约束；以及如何用一个几何感知的多模态语言模型——直接以点云感知物体与场景的几何、自回归预测物体的
+                      6D 位姿——来突破这一瓶颈，并通过&quot;规划—摆放—验证&quot;的智能体闭环，实现文本驱动的自动场景生成。
+                      整体上，课程将依次覆盖问题的建模、几何感知模型的设计、训练数据的构建，以及实验与评估，并结合具体案例展示物体摆放与自动场景生成的实际效果。
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">面向具身智能的三维生成、世界模型与自主进化<br>穆尧，上海交通大学<br>14:30-15:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      了解3D表达、建模与生成在具身智能中的核心作用，理解生成式3D技术如何支撑具身仿真、世界模型和机器人自进化系统，掌握从三维场景/资产生成到仿真数据引擎、世界预测与策略学习闭环的基本思路。
+                    </ul>
+                    <ul>
+                      <li>3D生成 for 具身仿真：多样化场景生成、可交互物体资产生成、物理属性标注、功能区域标注、抓取点标注与仿真可用数字孪生构建</li>
+                      <li>具身仿真数据引擎：以RoboTwin、ManiTwin、Rein3D等为例，介绍任务场景自动构建、专家数据生成、领域随机化、仿真到现实迁移，以及面向双臂、灵巧手和人形机器人的仿真平台
+                      </li>
+                      <li>世界模型驱动的动作生成：介绍World Action Model、Video-Action Model、VLA-World
+                        Model等路线，理解视频预测、未来状态想象、逆动力学模型和动作解码之间的关系</li>
+                      <li>具身智能体自进化：介绍“环境生成—数据生成—模型训练—进展评估—失败诊断—策略改进—真实验证”的闭环系统，讨论生成式仿真、强化学习、基础模型和智能调度Agent如何共同推动机器人持续进化
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">3D生成大模型的表征之路<br>贾荣飞，数美万物<br>15:40-16:10</td>
+                  <td width="70%" align="left">
+                    <ul>
+                      <li>问题与核心挑战：3D生成为何比2D难一个数量级</li>
+                      <li>四次表征跨越：SDS蒸馏时代 → 多视图+稀疏视角重建时代 → 3D原生时代 → Sparse Voxel时代</li>
+                      <li>3D几何大模型：Sparc3D——业内首个1536³分辨率3D几何大模型</li>
+                      <li>原生纹理大模型与语义分割：Hitem3D 2.0——业内首个原生3D纹理生成框架与最优3D语义分割</li>
+                      <li>最新效果与生产闭环：几何、纹理、分割全链路效果展示，从单张图像到3D打印的端到端演示</li>
+                      <li>3D大模型现状与未来：竞争格局、表征核心变量</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">融合经典与前沿：生成式三维建模与全栈架构实践<br>曹炎培，VAST<br>16:10-16:40</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      近年来，随着生成式人工智能的爆发，三维几何表达与建模技术正经历一场底层范式的重构。传统的离散几何表征（如多边形网格）与现代神经网络隐式表达在生成式架构中发生了深度的碰撞与融合。本课程旨在系统梳理
+                      3D 生成技术的发展脉络，探讨如何打破生成速度、质量与工业管线可用性之间的“不可能三角”。课程将从底层三维原生表征出发，多层递进，剖析结构化重拓扑、语义解耦与自动化绑定等关键图形学问题的 AI
+                      解决路径，并拓展至场景生成与交互式世界模型，为学员建立一个从单体资产生成到可交互世界的统一概览。
+                    </ul>
+                    <ul>
+                      <li>三维表达的演进与生成式架构的重构</li>
+                      <ul>
+                        <li>从优化到前向推断：3D 生成的范式转移</li>
+                        <li>现代神经表征与原生 3D 生成</li>
+                      </ul>
+                      <li>打通图形学管线：从“数字雕像”到工业级结构化资产</li>
+                      <ul>
+                        <li>可编辑性与语义解耦</li>
+                        <li>生成几何的自动化拓扑</li>
+                        <li>纹理与材质的全局一致性</li>
+                      </ul>
+                      <li>赋予资产动态潜能：自动骨骼绑定与运动推演</li>
+                      <ul>
+                        <li>任意拓扑下的自动化控制流</li>
+                        <li>动作引导的联合时空扩散</li>
+                      </ul>
+                      <li>跨越单体数字资产</li>
+                      <ul>
+                        <li>场景级3D生成</li>
+                        <li>世界模型初探</li>
+                      </ul>
+                      <li>总结与 Q&A</li>
+                      <ul>
+                        <li>总结</li>
+                        <li>互动问答</li>
+                      </ul>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">迈向工业可用的3D生成<br>许家乐，Meshy<br>16:40-17:10</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      理解3D生成从“视觉可看”走向“工业可用”的关键问题，掌握高模生成与低模生成的主要技术路线及未来挑战。
+                    </ul>
+                    <ul>
+                      <li>背景知识：3D表征与生成模型</li>
+                      <li>更精细：高模生成技术路线</li>
+                      <ul>
+                        <li>基于多视角重建的方法（LRM, Instant3D, InstantMesh, FreeSplatter）</li>
+                        <li>基于3D原生扩散模型的方法（3DShape2Vecset, TRELLIS, Lattice）</li>
+                      </ul>
+                      <li>更可用：低模生成技术路线</li>
+                      <ul>
+                        <li>基于自回归模型的方法（MeshGPT, MeshXL, BPT, TreeMeshGPT, MeshWeaver）</li>
+                        <li>基于扩散模型的方法（SpaceMesh, MeshFlow, MeshCraft, Lato）</li>
+                      </ul>
+                      <li>3D生成的挑战与未来趋势</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:#ffffff">
+                  <td colspan="2" align="center"><strong>7月9日 星期四</strong></td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">分组讨论<br>课题指导老师<br>08:30-11:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">分组讨论<br>课题指导老师<br>14:30-17:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:#ffffff">
+                  <td colspan="2" align="center"><strong>7月10日 星期五</strong></td>
+                </tr>
+                <tr style="background-color:rgb(253, 233, 217)">
+                  <td width="30%">分组讨论<br>课题指导老师<br>08:30-11:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+                <tr style="background-color:rgb(218, 238, 243)">
+                  <td width="30%">分组讨论<br>课题指导老师<br>14:30-17:30</td>
+                  <td width="70%" align="left">
+                    <ul style="padding-left:1.2em; margin-left:0;">
+                      内容待补充
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <!-- /.container -->
+
+      <footer class="footer">
+        <p>© 2026 USTC CG Summer School</p>
+      </footer>
+
+      <!-- Bootstrap core JavaScript
+    ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="./js_files/jquery.min.js"></script>
+      <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery.min.js?version=2.0.02"><\/script>')
+      </script>
+      <script src="./js_files/bootstrap.min.js"></script>
+      <script src="./js_files/docs.min.js"></script>
+
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <script src="./js_files/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+
+</html>
